@@ -8,7 +8,5 @@ def index(request):
         })
 
 def imc(request, peso, altura):
-    imc = peso / (altura*altura)
-    peso = 74
-    altura = 170
+    imc = 1 # calcular el imc
     return render(request, "ejemplo/imc.html", {"imc": imc}),

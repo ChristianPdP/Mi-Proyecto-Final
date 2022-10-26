@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    HOLA ESTO ES UN SALUDO DESDE UN TEMPLATE!!!! {{nombre}},{{apellido}}
-    
-</body>    
+
+    <form method="post">
+        {% csrf_token %}
+        "¿ Estás seguro de borrar el familiar {{ object }} ?"
+        <input type="submit" value="SI">
+    </form>
+
+</body>
 </html>

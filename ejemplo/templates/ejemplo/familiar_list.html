@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    HOLA ESTO ES UN SALUDO DESDE UN TEMPLATE!!!! {{nombre}},{{apellido}}
-    
-</body>    
+<ul>
+
+{% block buscar %} {% endblock %}
+
+{% for familiar in object_list %}
+    <li>{{familiar}}</li>
+    <a href="{% url 'familiar-borrar' familiar.id %}">Delete</a>
+{% endfor %}    
+</ul>
+
+</body>
 </html>

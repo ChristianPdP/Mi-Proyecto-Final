@@ -15,15 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import imc, index, monstrar_familiares, BuscarFamiliar
+from ejemplo.views import (imc, index, monstrar_familiares, mostrar_mi_template, saludar_a, saludo,
+                            BuscarFamiliar, AltaFamiliar, FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar)
 #from blog.views import index as blog_index
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludar/', index),
+    path('saludo/', saludo),
+    path('saludar_a/<nombre>', saludar_a),   
+    path('saludar-desde-el-primer-template/', index),
+    path('mostrar-mi-template/', mostrar_mi_template),
     path('imc/', imc),
     path('mi-familia/', monstrar_familiares),
  #   path('blog/', blog_index),
     path('mi-familia/buscar', BuscarFamiliar.as_view()),
+    path('mi-familia/alta', AltaFamiliar.as_view()),  
+    path('panel-familia/', FamiliarList.as_view(), name="familiar-list"), 
+    path('panel-familia/crear', FamiliarCrear.as_view(), name="familiar-crear"), 
+    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view(), name="familiar-borrar"),
+    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view(), name="familiar-actualizar"),   
 ]
